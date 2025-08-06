@@ -1,0 +1,71 @@
+/* Estilos mejorados para el contador del carrito */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(45deg, #ff4757, #ff3742);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 4px;
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
+    animation: bounceIn 0.6s ease;
+    z-index: 10;
+}
+
+.cart-count.hidden {
+    display: none;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-cart {
+    position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-cart:hover {
+    color: #ff6b6b;
+}
+
+.btn-cart svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+}

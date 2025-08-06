@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda oficial de Pokémon - Compra cartas coleccionables de todas las generaciones">
+    <meta name="keywords" content="pokemon, tienda, cartas, cartas coleccionables, trading cards">
+    <meta name="author" content="Tienda Pokémon">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Tienda Pokémon - Tu tienda oficial">
+    <meta property="og:description" content="Descubre la mejor colección de Pokémon con envíos a todo el mundo">
+    <meta property="og:image" content="https://tutiendapokemon.com/og-image.jpg">
+    <meta property="og:url" content="https://tutiendapokemon.com">
+    
+    <title>Tienda Pokémon - Tu tienda oficial de Pokémon</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #000000;">
+    <!-- Header con navegación -->
+<header class="header"> 
+        <div class="container" style="display: flex; align-items: center; justify-content: flex-start; gap: 1rem;">
+            <div class="header-actions" style="display: flex; gap: 1rem;">
+                <button class="btn-search" aria-label="Buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <a href="carrito.html" class="btn-cart" aria-label="Carrito">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="logo" style="display: none;">
+                <img src="img/logo.jpeg" alt="Poke Padrino" width="150" height="50">
+            </div>
+            <button class="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-navigation" style="display: none;">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav" id="primary-navigation" hidden style="display: none;">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#productos" class="nav-link">Productos</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Bienvenido al mundo Pokémon</h1>
+                    <p class="hero-subtitle">Descubre la mejor colección de cartas</p>
+                    <div class="hero-actions">
+                        <a href="#productos" class="btn btn-primary">Ver Productos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+
+        <!-- Productos Destacados -->
+        <section id="productos" class="products">
+            <div class="container">
+                <h2 class="section-title">Productos Destacados</h2>
+                <div class="products-grid" id="products-container">
+                    <!-- Los productos se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>¡Mantente al día!</h2>
+                <p>Suscríbete para recibir ofertas exclusivas y novedades</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tienda Pokémon</h3>
+                    <p>Tu tienda oficial de Pokémon con envíos a todo el mundo</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Email: pokepadrino293@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Poke Padrino. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

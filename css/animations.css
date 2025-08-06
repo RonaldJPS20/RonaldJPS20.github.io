@@ -1,0 +1,305 @@
+/* ===== ANIMACIONES Y EFECTOS VISUALES ===== */
+
+/* Variables de colores Pokémon mejorados */
+:root {
+    --pokemon-red: #FF0000;
+    --pokemon-blue: #3B82F6;
+    --pokemon-yellow: #FBBF24;
+    --pokemon-green: #10B981;
+    --pokemon-purple: #8B5CF6;
+    --pokemon-orange: #F97316;
+    --neon-glow: 0 0 20px rgba(255, 255, 255, 0.5);
+    --gradient-primary: linear-gradient(135deg, #FF0000, #FF6B6B, #FBBF24);
+    --gradient-secondary: linear-gradient(135deg, #3B82F6, #8B5CF6, #10B981);
+}
+
+/* ===== ANIMACIONES GLOBALES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== HEADER CON EFECTOS ===== */
+.header {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+}
+
+.header.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(255, 0, 0, 0.5);
+}
+
+/* ===== HERO SECTION ANIMADA ===== */
+.hero {
+    background: linear-gradient(135deg, #FF0000, #FF6B6B, #FBBF24, #3B82F6);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.4"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/></circle><circle cx="50" cy="70" r="1" fill="white" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/></circle></svg>');
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    background: linear-gradient(45deg, #fff, #FBBF24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* ===== PRODUCTOS CON EFECTOS 3D ===== */
+.product-card {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.4);
+    border-color: var(--pokemon-red);
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.product-card:hover::before {
+    left: 100%;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    transition: all 0.4s ease;
+    filter: brightness(1) contrast(1.1);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.2) contrast(1.2);
+}
+
+/* ===== BOTONES ANIMADOS ===== */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--pokemon-red), #FF6B6B);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #FF6B6B, var(--pokemon-red));
+    animation: none;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.6);
+}
+
+/* ===== ADD TO CART BUTTON ESPECIAL ===== */
+.add-to-cart {
+    background: linear-gradient(45deg, var(--pokemon-blue), var(--pokemon-yellow));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(45deg, var(--pokemon-yellow), var(--pokemon-blue));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+}
+
+.add-to-cart:active {
+    transform: translateY(0);
+}
+
+/* ===== CART ITEMS ANIMADOS ===== */
+.cart-item {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.5s ease;
+}
+
+.cart-item:hover {
+    border-color: var(--pokemon-yellow);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+/* ===== LOADER PERSONALIZADO ===== */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid var(--pokemon-red);
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+    margin: 50px auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+/* ===== UTILIDADES ===== */
+.fade-in {
+    animation: fadeInUp 0.6s ease;
+}
+
+.slide-in {
+    animation: slideInLeft 0.6s ease;
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.float-effect {
+    animation: float 3s ease-in-out infinite;
+}
